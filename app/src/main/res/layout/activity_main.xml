@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- No Data Layout -->
+    <RelativeLayout
+        android:id="@+id/idNoDataLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <!-- Başlık -->
+        <TextView
+            android:id="@+id/idTVHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:layout_centerInParent="true"
+            android:text="Chat GPT \n AI Image Generator"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Alt Başlık -->
+        <TextView
+            android:id="@+id/idTVSubHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idTVHeading"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:text="Enter your query to generate Image"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <!-- Yüklenme Çubuğu -->
+        <ProgressBar
+            android:id="@+id/idPBLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_below="@id/idTVSubHeading"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
+    </RelativeLayout>
+
+    <!-- Data Layout -->
+    <RelativeLayout
+        android:id="@+id/idRLData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:visibility="visible">
+
+        <!-- ImageView -->
+        <ImageView
+            android:id="@+id/idIVImage"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:visibility="visible" />
+
+        <!-- CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/idCVCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idIVImage"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:visibility="visible"
+            app:cardBackgroundColor="#774df2"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
+
+            <!-- TextView -->
+            <TextView
+                android:id="@+id/idTVQuery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="Query will appear here"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- TextInputLayout -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/idTILQuery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:hint="Enter your Query"
+            android:padding="5dp"
+            android:textColorHint="@android:color/black"
+            app:hintTextColor="@android:color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/idEdtQuery"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTint="#774df2"
+                android:ems="10"
+                android:imeOptions="actionSend"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
