@@ -16,6 +16,7 @@ import com.android.volley.RetryPolicy
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.android.volley.VolleyError
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import org.json.JSONObject
 
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     var url = "https://api.openai.com/v1/image/generations"
     lateinit var queryTV: TextView
     lateinit var imageView: ImageView
-    lateinit var queryEdt: TextInputLayout
+    lateinit var queryEdt: TextInputEditText  // TextInputEditText türünde olmalı
     lateinit var loadingPB: ProgressBar
     lateinit var noDataRL: RelativeLayout
     lateinit var dataRL: RelativeLayout
@@ -34,16 +35,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         queryTV = findViewById(R.id.idTVQuery)
         imageView = findViewById(R.id.idIVImage)
-        queryEdt = findViewById(R.id.idEdtQuery)
+
+        // TextInputEditText ile erişim yapılmalı
+        queryEdt = findViewById(R.id.idEdtQuery) // .editText ile TextInputEditText'e erişim
+
         loadingPB = findViewById(R.id.idPBLoading)
         noDataRL = findViewById(R.id.idNoDataLayout)
         dataRL = findViewById(R.id.idRLData)
 
-        queryEdt.editText?.setOnEditorActionListener { textView, i, keyEvent ->
+        queryEdt.setOnEditorActionListener { textView, i, keyEvent ->
             if (i == EditorInfo.IME_ACTION_SEND) {
-                if (queryEdt.editText?.text.toString().isNotEmpty()) {
-                    queryTV.text = queryEdt.editText?.text.toString()
-                    getResponse(queryEdt.editText?.text.toString())
+                if (queryEdt.text.toString().isNotEmpty()) {
+                    queryTV.text = queryEdt.text.toString()
+                    getResponse(queryEdt.text.toString())
                 } else {
                     Toast.makeText(
                         applicationContext,
@@ -58,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getResponse(query: String) {
-        queryEdt.editText?.setText("")  // Clear the input field
+        queryEdt.setText("")  // Clear the input field
         loadingPB.visibility = View.VISIBLE  // Show the loading progress bar
         noDataRL.visibility = View.GONE  // Hide the no data layout
         dataRL.visibility = View.GONE  // Hide the data layout initially
