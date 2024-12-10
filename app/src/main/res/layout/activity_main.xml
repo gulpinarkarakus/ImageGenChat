@@ -5,7 +5,7 @@
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="@drawable/bluebackground">
 
     <!-- No Data Layout -->
     <RelativeLayout
@@ -15,112 +15,114 @@
         android:visibility="visible">
 
         <!-- Başlık -->
-        <TextView
-            android:id="@+id/idTVHeading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="5dp"
-            android:layout_centerInParent="true"
-            android:text="Chat GPT \n AI Image Generator"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+
 
         <!-- Alt Başlık -->
-        <TextView
-            android:id="@+id/idTVSubHeading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idTVHeading"
-            android:layout_margin="10dp"
-            android:padding="5dp"
-            android:text="Enter your query to generate Image"
-            android:textAlignment="center"
-            android:textColor="#000000" />
+
 
         <!-- Yüklenme Çubuğu -->
-        <ProgressBar
-            android:id="@+id/idPBLoading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_below="@id/idTVSubHeading"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp" />
-    </RelativeLayout>
 
-    <!-- Data Layout -->
-    <RelativeLayout
-        android:id="@+id/idRLData"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:visibility="visible">
-
-        <!-- ImageView -->
-        <ImageView
-            android:id="@+id/idIVImage"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:visibility="visible" />
-
-        <!-- CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/idCVCard"
+        <RelativeLayout
+            android:id="@+id/idRLData"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idIVImage"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:visibility="visible"
-            app:cardBackgroundColor="#774df2"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
-            app:cardPreventCornerOverlap="false"
-            app:cardUseCompatPadding="true">
+            android:layout_height="match_parent"
+            android:visibility="visible">
 
-            <!-- TextView -->
-            <Button
-                android:id="@+id/idTVQuery"
+            <!-- ImageView -->
+
+
+            <!-- CardView -->
+
+            <!-- TextInputLayout -->
+
+            <ImageView
+                android:id="@+id/idIVImage"
+                android:layout_width="223dp"
+                android:layout_height="177dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="14dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="33dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toStartOf="@+id/idIVImage2"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/idIVImage2"
+                android:layout_width="223dp"
+                android:layout_height="177dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/idIVImage3"
+                android:layout_width="223dp"
+                android:layout_height="177dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="14dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toEndOf="@+id/idIVImage2"
+                android:visibility="visible" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/idTILQuery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="5dp"
+                android:hint="Describe the image you want to see"
+                android:padding="5dp"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@android:color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/idEdtQuery"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableTint="#774df2"
+                    android:ems="10"
+                    android:imeOptions="actionSend"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/black"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/idTVQuery"
+                android:layout_width="432dp"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/idTILQuery"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="169dp"
+                android:layout_marginEnd="130dp"
+                android:layout_marginBottom="11dp"
                 android:padding="6dp"
-                android:text="Query will appear here"
+                android:text="Create wallpaper options"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
-        </androidx.cardview.widget.CardView>
 
-        <!-- TextInputLayout -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/idTILQuery"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"
-            android:hint="Enter your Query"
-            android:padding="5dp"
-            android:textColorHint="@android:color/black"
-            app:hintTextColor="@android:color/black">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/idEdtQuery"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableTint="#774df2"
-                android:ems="10"
-                android:imeOptions="actionSend"
-                android:importantForAutofill="no"
-                android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/black"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
+        </RelativeLayout>
     </RelativeLayout>
+
+    <!-- Data Layout -->
 
 </RelativeLayout>
